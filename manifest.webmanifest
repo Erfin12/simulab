@@ -1,0 +1,54 @@
+{
+  "name": "SIMULAB - Interactive Digital Science Laboratory",
+  "short_name": "SIMULAB",
+  "description": "Laboratorium sains digital interaktif. Explore. Experiment. Understand.",
+  "start_url": "./index.html#/dashboard",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B1020",
+  "theme_color": "#0B1020",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "public/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "public/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "public/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "public/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Jelajahi simulasi",
+      "short_name": "Jelajahi",
+      "url": "./index.html#/explore"
+    },
+    {
+      "name": "Hukum Ohm",
+      "short_name": "Ohm",
+      "url": "./index.html#/physics/circuits"
+    },
+    {
+      "name": "Ruang Guru (lokal)",
+      "short_name": "Guru",
+      "url": "./index.html?mode=guru#/teacher"
+    }
+  ]
+}
