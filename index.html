@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- © 2026 Erfin. All rights reserved. See LICENSE. -->
 <html lang="id" data-theme="dark">
 <head>
 <meta charset="utf-8">
@@ -7,22 +8,22 @@
 <meta name="description" content="SIMULAB: laboratorium sains digital interaktif. 15 simulasi fisika, matematika, kimia, dan biologi yang bisa dipakai offline.">
 <meta name="theme-color" content="#0B1020">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="public/icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="public/icons/icon-192.png">
-<link rel="stylesheet" href="src/styles/base.css">
-<link rel="stylesheet" href="src/styles/layout.css">
-<link rel="stylesheet" href="src/styles/components.css">
+<link rel="icon" href="public-icons-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="public-icons-icon-192.png">
+<link rel="stylesheet" href="src-styles-base.css">
+<link rel="stylesheet" href="src-styles-layout.css">
+<link rel="stylesheet" href="src-styles-components.css">
 <script>
 (function(){try{var t=localStorage.getItem('simulab.theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t;var m=localStorage.getItem('simulab.motion');if(m==='reduce'||m==='full')document.documentElement.dataset.motion=m;}catch(e){}})();
 </script>
-<link rel="stylesheet" href="src/styles/phase1.css">
-<link rel="stylesheet" href="vendor/driver/driver.css">
-<link rel="stylesheet" href="src/styles/phase23.css">
-<script src="vendor/driver/driver.js.iife.js"></script>
+<link rel="stylesheet" href="src-styles-phase1.css">
+<link rel="stylesheet" href="vendor-driver-driver.css">
+<link rel="stylesheet" href="src-styles-phase23.css">
+<script src="vendor-driver-driver.js.iife.js"></script>
 </head>
 <body>
 <div id="app"></div>
 <noscript><p style="padding:24px">SIMULAB memerlukan JavaScript untuk menjalankan simulasi.</p></noscript>
-<script type="module" src="src/main.js"></script>
+<script type="module" src="src-main.js"></script>
 </body>
 </html>

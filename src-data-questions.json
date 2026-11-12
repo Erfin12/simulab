@@ -1,0 +1,332 @@
+{
+  "linear-motion": [
+    [
+      "Saat percepatan nol, grafik posisi terhadap waktu berbentuk...",
+      [
+        "Garis lurus",
+        "Parabola",
+        "Selalu mendatar"
+      ],
+      0,
+      "x = x₀ + vt. Kemiringannya kecepatan; mendatar hanya jika v = 0."
+    ],
+    [
+      "Kecepatan awal 0 dan a = 2 m/s². Kecepatan pada 3 s adalah...",
+      [
+        "3 m/s",
+        "6 m/s",
+        "9 m/s"
+      ],
+      1,
+      "v = v₀ + at = 0 + 2 × 3 = 6 m/s."
+    ]
+  ],
+  "free-fall": [
+    [
+      "Tanpa hambatan udara, massa dua kali lebih besar membuat waktu jatuh...",
+      [
+        "Dua kali lipat",
+        "Setengah",
+        "Sama"
+      ],
+      2,
+      "t = √(2h/g), tidak bergantung pada massa."
+    ],
+    [
+      "Benda dari diam jatuh 20 m, g = 10 m/s². Waktu jatuh...",
+      [
+        "2 s",
+        "4 s",
+        "10 s"
+      ],
+      0,
+      "t = √(2 × 20/10) = 2 s."
+    ]
+  ],
+  "newton-law": [
+    [
+      "Gaya resultan 12 N pada massa 3 kg memberi percepatan...",
+      [
+        "4 m/s²",
+        "9 m/s²",
+        "36 m/s²"
+      ],
+      0,
+      "ΣF = ma, jadi a = 12/3 = 4 m/s²."
+    ],
+    [
+      "Jika resultan gaya nol, benda...",
+      [
+        "Pasti diam",
+        "Bisa bergerak dengan kecepatan tetap",
+        "Pasti bertambah cepat"
+      ],
+      1,
+      "Hukum I Newton: kecepatan tetap, termasuk nol."
+    ]
+  ],
+  "energy": [
+    [
+      "Tanpa hambatan udara, energi mekanik...",
+      [
+        "Selalu bertambah",
+        "Tetap",
+        "Selalu nol"
+      ],
+      1,
+      "Ek + Ep tetap ketika hanya gaya gravitasi bekerja."
+    ],
+    [
+      "Jika laju menjadi dua kali, energi kinetik menjadi...",
+      [
+        "2 kali",
+        "4 kali",
+        "8 kali"
+      ],
+      1,
+      "Ek = ½mv². (2v)² = 4v²."
+    ]
+  ],
+  "waves": [
+    [
+      "f = 2 Hz dan λ = 3 m. Cepat rambatnya...",
+      [
+        "6 m/s",
+        "1,5 m/s",
+        "5 m/s"
+      ],
+      0,
+      "v = fλ = 2 × 3 = 6 m/s."
+    ],
+    [
+      "Frekuensi 4 Hz mempunyai periode...",
+      [
+        "4 s",
+        "2 s",
+        "0,25 s"
+      ],
+      2,
+      "T = 1/f = 1/4 s."
+    ]
+  ],
+  "quadratic": [
+    [
+      "Pada y = x², gradien di x = 2 adalah...",
+      [
+        "2",
+        "4",
+        "8"
+      ],
+      1,
+      "dy/dx = 2x, sehingga gradien = 4."
+    ],
+    [
+      "Koefisien a positif pada y = ax² + bx + c membuat parabola...",
+      [
+        "Terbuka ke atas",
+        "Terbuka ke bawah",
+        "Selalu memotong sumbu x"
+      ],
+      0,
+      "Tanda a menentukan arah buka, bukan keberadaan akar real."
+    ]
+  ],
+  "trigonometry": [
+    [
+      "sin² θ + cos² θ sama dengan...",
+      [
+        "0",
+        "1",
+        "2"
+      ],
+      1,
+      "Ini identitas lingkaran satuan: x² + y² = 1."
+    ],
+    [
+      "Pada sudut 90°, cos θ adalah...",
+      [
+        "1",
+        "−1",
+        "0"
+      ],
+      2,
+      "Titik lingkaran satuan pada 90° adalah (0, 1)."
+    ]
+  ],
+  "reaction-rate": [
+    [
+      "Jika [A] berkurang setengah dalam satu waktu paruh, setelah dua waktu paruh tersisa...",
+      [
+        "¼ awal",
+        "½ awal",
+        "Nol"
+      ],
+      0,
+      "Setiap waktu paruh mengalikan konsentrasi dengan ½."
+    ],
+    [
+      "Untuk orde satu, waktu paruh bergantung pada...",
+      [
+        "Konsentrasi awal",
+        "Konstanta laju k",
+        "Volume saja"
+      ],
+      1,
+      "t½ = ln 2/k, tidak bergantung [A]₀ pada model ini."
+    ]
+  ],
+  "titration": [
+    [
+      "Pada titrasi asam kuat-basa kuat ideal 25 °C, pH ekuivalen adalah...",
+      [
+        "1",
+        "7",
+        "14"
+      ],
+      1,
+      "Tidak ada kelebihan H⁺ atau OH⁻; air memiliki pH 7 pada 25 °C."
+    ],
+    [
+      "25 mL asam 0,1 M butuh basa 0,1 M sebanyak...",
+      [
+        "12,5 mL",
+        "25 mL",
+        "50 mL"
+      ],
+      1,
+      "Pada ekuivalen n asam = n basa, sehingga CaVa = CbVb."
+    ]
+  ],
+  "population": [
+    [
+      "Dalam model logistik, jika N = K maka...",
+      [
+        "Pertumbuhan bersih nol",
+        "N langsung nol",
+        "Pertumbuhan tak terbatas"
+      ],
+      0,
+      "dN/dt = rN(1 − N/K), faktor terakhir nol."
+    ],
+    [
+      "Jika 0 < N < K dan r > 0, populasi...",
+      [
+        "Turun",
+        "Tetap",
+        "Naik menuju K"
+      ],
+      2,
+      "Laju pertumbuhan positif tetapi melambat saat mendekati K."
+    ]
+  ],
+  "enzyme": [
+    [
+      "Pada [S] = Km, laju Michaelis-Menten adalah...",
+      [
+        "Vmax",
+        "½ Vmax",
+        "Nol"
+      ],
+      1,
+      "v = Vmax[S]/(Km + [S]) = Vmax/2."
+    ],
+    [
+      "Jika substrat sangat besar dibanding Km, laju mendekati...",
+      [
+        "Vmax",
+        "Tak hingga",
+        "Nol"
+      ],
+      0,
+      "Enzim jenuh, sehingga v mendekati Vmax."
+    ]
+  ],
+  "circuits": [
+    [
+      "Dua resistor 10 Ω paralel mempunyai hambatan pengganti...",
+      [
+        "20 Ω",
+        "10 Ω",
+        "5 Ω"
+      ],
+      2,
+      "1/R = 1/10 + 1/10, jadi R = 5 Ω."
+    ],
+    [
+      "Sumber 12 V mengalirkan 2 A. Dayanya...",
+      [
+        "6 W",
+        "24 W",
+        "144 W"
+      ],
+      1,
+      "P = VI = 12 × 2 = 24 W."
+    ]
+  ],
+  "optics": [
+    [
+      "Benda di 2f pada lensa cembung menghasilkan M...",
+      [
+        "−1",
+        "+1",
+        "0"
+      ],
+      0,
+      "dᵢ = 2f dan M = −dᵢ/dₒ = −1: sama besar, terbalik."
+    ],
+    [
+      "dᵢ negatif berarti bayangan...",
+      [
+        "Nyata",
+        "Maya",
+        "Selalu lebih kecil"
+      ],
+      1,
+      "Dalam konvensi ini dᵢ negatif berada di sisi benda: bayangan maya."
+    ]
+  ],
+  "archimedes": [
+    [
+      "2 L tercelup penuh, ρf = 1000 kg/m³ dan g = 10 m/s². Gaya apung...",
+      [
+        "2 N",
+        "20 N",
+        "200 N"
+      ],
+      1,
+      "Fₐ = ρf g V = 1000 × 10 × 0,002 = 20 N."
+    ],
+    [
+      "Benda lebih rapat daripada air, tanpa penahan dan tercelup penuh, cenderung...",
+      [
+        "Mengapung",
+        "Melayang netral",
+        "Tenggelam"
+      ],
+      2,
+      "Berat lebih besar daripada gaya apung maksimum jika ρb > ρf."
+    ]
+  ],
+  "expansion": [
+    [
+      "L₀ = 1 m, α = 12 µ/K, ΔT = 100 K. Perubahan panjang...",
+      [
+        "1,2 mm",
+        "12 mm",
+        "120 mm"
+      ],
+      0,
+      "12×10⁻⁶ × 1 × 100 m = 0,0012 m = 1,2 mm."
+    ],
+    [
+      "Batang bebas didinginkan, α positif. Batang...",
+      [
+        "Selalu memuai",
+        "Menyusut",
+        "Pasti tetap"
+      ],
+      1,
+      "ΔT negatif menyebabkan ΔL negatif pada pendekatan muai linear."
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+/* © 2026 Erfin. All rights reserved. See LICENSE. */
+import {toast} from './src-utils-dom.js';
+// Rendering ke Canvas lokal. Teks panjang dipotong dengan label, berkas JSON tetap lengkap.
+export function renderCard(rec,graph){
+ const cv=document.createElement('canvas');cv.width=1080;cv.height=1550;const c=cv.getContext('2d');c.fillStyle='#0b1728';c.fillRect(0,0,1080,1550);c.fillStyle='#133b4a';c.fillRect(0,0,1080,290);let y=76;
+ function wrap(text,size,color,width=940,limit=3){c.font=`${size}px system-ui`;c.fillStyle=color;let line='',n=0;for(const word of String(text).split(/\s+/)){if(c.measureText(line+word).width>width&&line){c.fillText(line,65,y);y+=size*1.35;if(++n>=limit){c.fillText('[teks dipotong, lengkap pada JSON]',65,y);y+=size*1.35;return}line=''}line+=word+' '}if(line){c.fillText(line,65,y);y+=size*1.35}}
+ wrap('SIMULAB / LAPORAN EKSPERIMEN',28,'#68efd2');y+=20;wrap(rec.title,44,'#fff',940,2);wrap(`${rec.alias} / ${rec.group||'Belajar mandiri'}`,24,'#c7dce8',940,2);y=335;wrap(`Latihan ${rec.score}/${rec.total} / hasil lokal, bukan ujian terverifikasi`,23,'#c7dce8',940,2);
+ c.fillStyle='#fff';c.fillRect(55,410,970,390);if(graph&&graph.width&&graph.height)c.drawImage(graph,65,420,950,370);else{y=480;wrap('Grafik tidak tersedia pada tampilan ini.',26,'#122337')}
+ y=850;for(const [label,text]of [['PREDIKSI',rec.prediction],['HASIL MODEL',rec.observation.map(r=>`${r.label}: ${Number(r.value.toPrecision(5)).toLocaleString('id-ID')} ${r.unit}`).join(' / ')],['KESIMPULAN SISWA',rec.explanation]]){wrap(label,22,'#68efd2');wrap(text,25,'#fff',940,3);y+=20}
+ y=1480;wrap('Model ideal / bukan pengukuran dunia nyata',20,'#b5cbda');wrap(new Date(rec.date).toLocaleString('id-ID')+' / SIMULAB 3.0',19,'#b5cbda');return cv;
+}
+const pngBlob=cv=>new Promise((resolve,reject)=>cv.toBlob(b=>b?resolve(b):reject(Error('PNG gagal dibuat')),'image/png'));
+const downloadBlob=(blob,name)=>{const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),2000)};
+export async function resultCard(rec,graph){try{downloadBlob(await pngBlob(renderCard(rec,graph)),'SIMULAB-kartu-'+rec.simId+'.png');toast('PNG diunduh. Anda dapat mengirimnya lewat WhatsApp.','ok')}catch{toast('Gagal membuat kartu gambar.','bad')}}
+export async function shareCard(rec,graph){try{const blob=await pngBlob(renderCard(rec,graph)),file=new File([blob],'SIMULAB-'+rec.simId+'.png',{type:'image/png'});if(navigator.share&&navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:'Hasil eksperimen SIMULAB'});toast('Dialog berbagi selesai. Periksa aplikasi tujuan untuk memastikan terkirim.')}catch(e){if(e.name==='AbortError'){toast('Berbagi dibatalkan.');return}downloadBlob(blob,file.name);toast('Berbagi tidak tersedia. PNG diunduh sebagai pengganti.')}}else{downloadBlob(blob,file.name);toast('Browser tidak mendukung berbagi gambar. PNG diunduh; kirim manual lewat WhatsApp.')}}catch{toast('Gagal menyiapkan gambar.','bad')}}

@@ -1,0 +1,28 @@
+SIMULAB - Proprietary License / Hak Cipta
+
+© 2026 Erfin. All rights reserved.
+Seluruh hak dilindungi.
+
+Pemberitahuan ini berlaku untuk kode asli SIMULAB dan materi asli yang
+hak ciptanya dimiliki Erfin. Publikasi kode dalam repositori publik tidak
+memberikan lisensi umum untuk menggunakan ulang kode tersebut.
+
+Tanpa izin tertulis Erfin, tidak diberikan izin untuk menyalin, mengubah,
+mendistribusikan, memberikan sublisensi, menjual, atau menggunakan ulang
+kode asli SIMULAB, kecuali sejauh diizinkan oleh hukum yang berlaku atau
+hak terbatas yang timbul dari ketentuan platform tempat kode dipublikasikan.
+Pemberitahuan hak cipta dan lisensi tidak boleh dihapus.
+
+Komponen pihak ketiga dan sumber rujukan tetap mengikuti hak dan lisensi
+pemiliknya. Secara khusus, Driver.js di vendor/driver/ berlisensi MIT,
+Copyright (c) Kamran Ahmed. Lisensi aslinya dipertahankan di
+vendor/driver/license. Pemberitahuan hak cipta Erfin tidak mengubah atau
+menggantikan lisensi MIT tersebut. Lihat SUMBER-MODEL.md untuk rujukan model.
+
+This notice applies to original SIMULAB code and original materials owned
+by Erfin. No general reuse license is granted by making the repository
+public. Except as permitted by applicable law or the hosting platform's
+terms, copying, modification, redistribution, sublicensing, sale, or reuse
+of the original code requires prior written permission from Erfin.
+Third-party components remain subject to their own licenses, including
+the MIT-licensed Driver.js in vendor/driver/.

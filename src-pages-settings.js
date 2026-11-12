@@ -1,0 +1,24 @@
+/* © 2026 Erfin. All rights reserved. See LICENSE. */
+import {accessibilityPanel,initAccessibility} from './src-accessibility-settings.js';
+import { h, toast, modal, download } from './src-utils-dom.js';
+import { dateStamp } from './src-utils-format.js';
+import * as store from './src-storage-db.js';
+import { head } from './src-components-cards.js';
+import { setTheme, getTheme, setMotion, getMotion, installPrompt } from './src-prefs.js';
+
+export async function render(ctx) {
+  const name = await store.getSetting('name', '');
+  const seg = (label, opts, get, set) => { const row = h('div', { class: 'seg', role: 'group', 'aria-label': label }); const draw = () => { row.replaceChildren(...opts.map(([v, t]) => h('button', { type: 'button', 'aria-pressed': String(get() === v), class: 'chip-btn' + (get() === v ? ' on' : ''), onclick: () => { set(v); draw(); } }, t))); }; draw(); return row; };
+  const nameIn = h('input', { type: 'text', class: 'full', maxlength: 40, value: name, placeholder: 'Nama panggilan (opsional)', 'aria-label': 'Nama' });
+  const est = h('p', { class: 'muted small' }, 'Memeriksa penyimpanan…');
+  if (navigator.storage && navigator.storage.estimate) navigator.storage.estimate().then((e) => { est.textContent = `Penyimpanan browser terpakai ± ${((e.usage || 0) / 1024 / 1024).toFixed(1)} MB dari kuota ± ${Math.round((e.quota || 0) / 1024 / 1024)} MB.`; }); else est.textContent = 'Perkiraan penyimpanan tidak tersedia di browser ini.';
+  const file = h('input', { type: 'file', accept: 'application/json,.json', hidden: true });
+  file.addEventListener('change', async () => { const f = file.files[0]; if (!f) return; try { const data = JSON.parse(await f.text()); const n = await store.importAll(data); if (data.prefs) { if (data.prefs.theme) setTheme(data.prefs.theme); if (data.prefs.motion) setMotion(data.prefs.motion); } await initAccessibility(); toast(`Cadangan dipulihkan (${n} catatan).`, 'ok'); } catch (e) { toast('Gagal memulihkan: ' + e.message, 'bad'); } file.value = ''; });
+  const installBtn = h('button', { class: 'btn', type: 'button', hidden: !installPrompt.event, onclick: async () => { const ev = installPrompt.event; if (!ev) return; ev.prompt(); await ev.userChoice; installPrompt.event = null; installBtn.hidden = true; } }, 'Instal SIMULAB');
+  return { title: 'Settings', el: h('div', { class: 'page narrow' }, head('Settings'),accessibilityPanel(),
+    !store.persistent ? h('div', { class: 'alert warn' }, 'IndexedDB tidak tersedia (mungkin mode privat). Data hanya disimpan sementara selama tab ini terbuka.') : null,
+    h('section', { class: 'card doc' }, h('h3', null, 'Tampilan'), h('label', { class: 'ctl-l' }, 'Tema'), seg('Tema', [['dark', 'Gelap'], ['light', 'Terang']], getTheme, setTheme), h('label', { class: 'ctl-l' }, 'Animasi antarmuka'), seg('Gerak', [['system', 'Ikuti sistem'], ['reduce', 'Kurangi gerak'], ['full', 'Normal']], getMotion, setMotion), h('p', { class: 'muted small' }, '"Kurangi gerak" mematikan transisi halaman dan animasi dekoratif. Animasi simulasi tetap berjalan saat Anda menekan Start.')),
+    h('section', { class: 'card doc' }, h('h3', null, 'Profil'), nameIn, h('div', { class: 'row-gap' }, h('button', { class: 'btn btn-primary', type: 'button', onclick: async () => { await store.setSetting('name', nameIn.value.trim()); toast('Nama disimpan.', 'ok'); } }, 'Simpan nama')), h('p', { class: 'muted small' }, 'Hanya dipakai untuk sapaan di Dashboard. Tersimpan di perangkat ini.')),
+    h('section', { class: 'card doc' }, h('h3', null, 'Data dan cadangan'), est, h('div', { class: 'row-gap wrap' }, h('button', { class: 'btn', type: 'button', onclick: async () => { const d = await store.exportAll(); d.prefs = { theme: getTheme(), motion: getMotion() }; download(`simulab-cadangan-${dateStamp()}.json`, JSON.stringify(d, null, 1), 'application/json'); } }, 'Unduh cadangan (JSON)'), h('button', { class: 'btn', type: 'button', onclick: () => file.click() }, 'Pulihkan dari cadangan'), file, h('button', { class: 'btn btn-danger', type: 'button', onclick: async () => { const ok = await modal({ title: 'Hapus semua data?', body: h('p', null, 'Semua eksperimen tersimpan, progres, dan favorit di perangkat ini akan dihapus. Unduh cadangan dulu jika perlu.'), actions: [{ label: 'Batal', value: false }, { label: 'Hapus semua', primary: true, value: true }] }); if (ok) { await store.wipe(); await initAccessibility(); toast('Semua data dihapus.'); } } }, 'Hapus semua data')), h('p', { class: 'muted small' }, 'Data lokal tidak otomatis tersinkron ke perangkat lain. Pindahkan lewat cadangan.')),
+    h('section', { class: 'card doc' }, h('h3', null, 'Aplikasi'), installBtn, h('p', { class: 'muted small' }, installPrompt.event ? 'Pasang SIMULAB di layar utama agar terbuka seperti aplikasi.' : 'Jika tombol instal tidak muncul, gunakan menu browser: "Tambahkan ke layar utama".'))) };
+}
